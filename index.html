@@ -94,8 +94,8 @@
         .btn {
             display: flex;
             align-items: center;
-            justify-content: center; /* ממרכז את התוכן (אייקון + טקסט) ביחד */
-            gap: 12px; /* *** הוספתי רווח קבוע בין האייקון לטקסט *** */
+            justify-content: center;
+            gap: 12px;
             padding: 18px 24px;
             text-decoration: none;
             border-radius: 16px;
@@ -112,11 +112,9 @@
         }
 
         .btn i {
-            /* *** הסרתי את המיקום האבסולוטי (position: absolute) *** */
-            /* עכשיו האייקון הוא חלק מהזרימה ולא עולה על הטקסט */
             font-size: 1.2rem;
             color: var(--primary-green);
-            flex-shrink: 0; /* מונע מהאייקון להתכווץ אם הטקסט ארוך */
+            flex-shrink: 0;
         }
 
         .btn:hover {
@@ -125,7 +123,7 @@
             background: white;
         }
 
-        /* כפתור הזהב המודגש - עכשיו עבור הספר */
+        /* כפתור זהב (ספר) */
         .btn.featured {
             background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
             color: white;
@@ -135,7 +133,7 @@
         }
         .btn.featured i { color: white; }
         
-        /* כפתור ירוק מלא - עכשיו עבור ההדרכה */
+        /* כפתור ירוק (ממתיקים) */
         .btn.green-fill {
             background-color: var(--primary-green);
             color: white;
@@ -191,20 +189,19 @@
         
         <div class="links">
             
-            <!-- כפתור 1: הספר הפיזי (הכי חשוב - זהב) -->
-            <!-- עודכן למשפט שבחרת: מתנה לעצמך ולמטבח -->
+            <!-- כפתור 1: הספר הפיזי (זהב) -->
             <a href="https://rivkaol.github.io/sefer-matkonim/" class="btn featured">
                 <i class="fa-solid fa-book-open"></i>
                 מתנה לעצמך ולמטבח: ספר המתכונים השלם (מהדורה מודפסת)
             </a>
 
-            <!-- כפתור 2: הדרכה מיוחדת - ממתיקים (משני - ירוק) -->
-            <a href="trainings.html" class="btn green-fill">
+            <!-- כפתור 2: הדרכה מיוחדת - ממתיקים (ירוק) -->
+            <a href="https://rivkaol.github.io/mamtikim/" class="btn green-fill">
                 <i class="fa-solid fa-rocket"></i>
                 הדרכה מיוחדת: ממתיקים בריאים - האמת
             </a>
 
-            <!-- כפתור 3: ספריית ההדרכות -->
+            <!-- כפתור 3: ספריית ההדרכות (מוביל לדף החדש שנוצר) -->
             <a href="trainings.html" class="btn" style="border: 2px solid var(--accent-gold); background: white;">
                 <i class="fa-solid fa-graduation-cap"></i>
                 לספריית ההדרכות המלאה (חיסון, כוח רצון ועוד)
