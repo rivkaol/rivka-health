@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ספריית ההדרכות | רבקה הולצברג</title>
+    
+    <!-- פונטים ואייקונים -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-green: #1B4D3E;
+            --accent-gold: #D4AF37;
+            --bg-cream: #F8F9FA;
+            --text-dark: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            color: var(--primary-green);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            background: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                        url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            padding-bottom: 40px;
+        }
+
+        /* כפתור חזרה הביתה */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: 0.3s;
+            background: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .back-btn:hover { opacity: 1; transform: scale(1.1); }
+
+        .header-section { margin-bottom: 30px; margin-top: 20px; }
+        
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-green);
+        }
+        
+        .page-subtitle {
+            font-size: 1rem;
+            color: #555;
+            max-width: 300px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .training-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(27, 77, 62, 0.08);
+            border: 1px solid rgba(27, 77, 62, 0.1);
+            text-align: right;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .training-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(27, 77, 62, 0.15);
+            border-color: var(--accent-gold);
+        }
+
+        .card-tag {
+            background-color: var(--accent-gold);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .card-tag.winter { background-color: #3498db; } /* צבע כחול לחורף */
+        .card-tag.mindset { background-color: #9b59b6; } /* צבע סגול לנפש */
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-green);
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .card-link-text {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* יישור לשמאל */
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <!-- כפתור חזרה לדף הראשי -->
+    <a href="index.html" class="back-btn" title="חזרה לדף הראשי">
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+    <div class="container">
+        
+        <div class="header-section">
+            <!-- לוגו -->
+            <img src="logo.jpg.png" alt="לוגו" style="width: 80px; margin-bottom: 15px;">
+            <h1 class="page-title">ספריית הידע</h1>
+            <p class="page-subtitle">הדרכות עומק לחיים בריאים, מאוזנים ומלאי אנרגיה.</p>
+        </div>
+
+        <div class="cards-container">
+            
+            <!-- הדרכה 1: ממתיקים (הדבר החם) -->
+            <a href="https://rivkaol.github.io/mamtikim/" class="training-card">
+                <span class="card-tag">הכי מבוקשת 🔥</span>
+                <h3 class="card-title">ממתיקים בריאים - המדריך המלא</h3>
+                <p class="card-desc">האמת על תחליפי סוכר: סקירה מקיפה על מונק פרוט, סטיביה, דבש ואגבה. איך להיגמל מהצורך במתוק בלי לסבול.</p>
+                <div class="card-link-text">
+                    לצפייה בהדרכה <i class="fa-solid fa-chevron-left"></i>
+                </div>
+            </a>
+
+            <!-- הדרכה 2: חיזוק חיסוני (חורף) -->
+            <a href="https://rivkaol.github.io/hadracha-4/" class="training-card">
+                <span class="card-tag winter">חובה לחורף ❄️</span>
+                <h3 class="card-title">חומת מגן: חיזוק המערכת החיסונית</h3>
+                <p class="card-desc">איך לעבור את החורף בלי מחלות? המזונות הכתומים, "האנטיביוטיקה של הטבע", ושיטות סבתא שעובדות מדעית לחיזוק הגוף.</p>
+                <div class="card-link-text">
+                    לצפייה בהדרכה <i class="fa-solid fa-chevron-left"></i>
+                </div>
+            </a>
+
+            <!-- הדרכה 3: כוח הרצון (חדש!) -->
+            <a href="https://lp.smoove.io/w4eq" class="training-card">
+                <span class="card-tag mindset">גוף ונפש 🧠</span>
+                <h3 class="card-title">איך לחזק את כוח הרצון</h3>
+                <p class="card-desc">אין דבר כזה "אין לי כוח רצון" - יש שריר שנחלש. גלי איך לאמן את שריר הרצון בעזרת הבטחות קטנות.</p>
+                <div class="card-link-text">
+                    לצפייה בהדרכה <i class="fa-solid fa-chevron-left"></i>
+                </div>
+            </a>
+
+            <!-- הדרכה 4: פסיכולוגיה של השינוי -->
+            <a href="https://rivkaol.github.io/landing-page/" class="training-card">
+                <span class="card-tag mindset">גוף ונפש 🧠</span>
+                <h3 class="card-title">הפסיכולוגיה של השינוי: כאב ועונג</h3>
+                <p class="card-desc">למה אנחנו יודעות מה בריא אבל לא עושות את זה? גלי את הכוח הסמוי שמנהל את ההרגלים שלך.</p>
+                <div class="card-link-text">
+                    לצפייה בהדרכה <i class="fa-solid fa-chevron-left"></i>
+                </div>
+            </a>
+
+        </div>
+
+        <footer>
+            © כל הזכויות שמורות לרבקה הולצברג
+        </footer>
+    </div>
+
+</body>
+</html>
