@@ -41,7 +41,6 @@
             width: 100%;
             max-width: 480px;
             text-align: center;
-            animation: fadeIn 1s ease-in-out;
             position: relative;
             z-index: 1;
         }
@@ -50,6 +49,7 @@
         .logo-container {
             margin-bottom: 20px;
             text-align: center;
+            animation: fadeIn 0.8s ease-out;
         }
         
         .logo-img {
@@ -69,6 +69,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: fadeIn 1s ease-out;
         }
 
         .profile-img {
@@ -79,6 +80,8 @@
             border: 4px solid white;
             box-shadow: 0 0 0 4px var(--accent-gold), 0 10px 20px rgba(0,0,0,0.15);
             background-color: #eee;
+            /* אנימציית נשימה עדינה */
+            animation: float 6s ease-in-out infinite;
         }
 
         .hidden-title { display: none; }
@@ -95,80 +98,118 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px; /* רווח בין האייקון לטקסט */
             padding: 18px 24px;
             text-decoration: none;
             border-radius: 16px;
             font-weight: 500;
             font-size: 1.05rem;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
-            box-shadow: 0 4px 10px rgba(27, 77, 62, 0.08);
-            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 15px rgba(27, 77, 62, 0.05);
+            background: rgba(255, 255, 255, 0.9);
             color: var(--primary-green);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
             text-align: center;
+            
+            /* אנימציית כניסה */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFade 0.6s ease-out forwards;
         }
+
+        .btn:nth-child(1) { animation-delay: 0.1s; }
+        .btn:nth-child(2) { animation-delay: 0.2s; }
+        .btn:nth-child(3) { animation-delay: 0.3s; }
+        .btn:nth-child(4) { animation-delay: 0.4s; }
+        .btn:nth-child(5) { animation-delay: 0.5s; }
+        .btn:nth-child(6) { animation-delay: 0.6s; }
+        .btn:nth-child(7) { animation-delay: 0.7s; }
 
         .btn i {
             font-size: 1.2rem;
             color: var(--primary-green);
-            flex-shrink: 0;
+            flex-shrink: 0; /* מונע מהאייקון להתכווץ */
         }
 
         .btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(27, 77, 62, 0.15);
+            box-shadow: 0 15px 30px rgba(27, 77, 62, 0.15);
             background: white;
+            border-color: white;
         }
 
-        /* כפתור זהב (ספר) */
+        /* כפתור זהב */
         .btn.featured {
-            background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A005 100%);
             color: white;
             border: none;
             font-weight: 700;
-            animation: pulse 2s infinite;
+            /* הסרתי את ה-overflow: hidden שהיה קשור לברק */
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
         }
         .btn.featured i { color: white; }
         
-        /* כפתור ירוק (ממתיקים) */
+        /* הוסר: אפקט הברק (.btn.featured::after) */
+        
+        /* כפתור ירוק */
         .btn.green-fill {
             background-color: var(--primary-green);
             color: white;
+            box-shadow: 0 8px 20px rgba(27, 77, 62, 0.2);
         }
         .btn.green-fill i { color: white; }
+        .btn.green-fill:hover {
+            background-color: #143d30;
+        }
 
         .socials {
             margin-top: 45px;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            background: rgba(255,255,255,0.6);
-            padding: 15px 30px;
-            border-radius: 50px;
+            gap: 25px;
+            animation: fadeIn 1s ease-out 0.8s backwards;
         }
 
         .social-icon {
             color: var(--primary-green);
-            font-size: 1.6rem;
-            transition: transform 0.2s, color 0.2s;
+            font-size: 1.8rem;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
         .social-icon:hover {
-            transform: scale(1.2);
+            transform: scale(1.25) rotate(5deg);
             color: var(--accent-gold);
         }
 
         footer {
-            margin-top: 30px;
-            font-size: 0.85rem;
+            margin-top: 40px;
+            font-size: 0.9rem;
             color: var(--primary-green);
-            opacity: 0.8;
+            opacity: 0.7;
+            font-weight: 400;
+            animation: fadeIn 1s ease-out 1s backwards;
         }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
+        /* אנימציות */
+        @keyframes fadeIn { 
+            from { opacity: 0; } 
+            to { opacity: 1; } 
+        }
+        
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* הוסר: @keyframes shine */
     </style>
 </head>
 <body>
@@ -192,19 +233,19 @@
             <!-- כפתור 1: הספר הפיזי (זהב) -->
             <a href="https://rivkaol.github.io/sefer-matkonim/" class="btn featured">
                 <i class="fa-solid fa-book-open"></i>
-                מתנה לעצמך ולמטבח: ספר המתכונים השלם (מהדורה מודפסת)
+                ספר המתכונים המלא שלי - מהדורה מודפסת מיוחדת למטבח שלך
             </a>
 
-            <!-- כפתור 2: ממתיקים (ירוק) - הטקסט שופר -->
+            <!-- כפתור 2: הדרכה מיוחדת - ממתיקים (ירוק) -->
             <a href="https://rivkaol.github.io/mamtikim/" class="btn green-fill">
-                <i class="fa-solid fa-rocket"></i>
-                להנות ממתוק ולשמור על הבריאות: המדריך לממתיקים בטוחים
+                <i class="fa-solid fa-leaf"></i>
+                מתוק בריא זה אפשרי: המדריך השלם לממתיקים הבטוחים
             </a>
 
             <!-- כפתור 3: ספריית ההדרכות -->
             <a href="trainings.html" class="btn" style="border: 2px solid var(--accent-gold); background: white;">
                 <i class="fa-solid fa-graduation-cap"></i>
-                לספריית ההדרכות המלאה (חיסון, כוח רצון ועוד)
+                כל ההדרכות שלי במקום אחד: חיסון, כוח רצון, בריאות ועוד
             </a>
 
             <!-- כפתור 4: מתנה לחמים -->
@@ -222,13 +263,13 @@
             <!-- כפתור 6: וואטסאפ קבוצה -->
             <a href="https://chat.whatsapp.com/Fuc4X9Wyfiv58sYmitiXb0" class="btn">
                 <i class="fa-brands fa-whatsapp"></i>
-                הצטרפי לקהילת הבריאות בוואטסאפ
+                הצטרפו לקהילת הבריאות שלי בוואטסאפ - תומכת ומחזקת
             </a>
 
             <!-- כפתור 7: יצירת קשר -->
             <a href="https://api.whatsapp.com/send/?phone=972504207702&text&type=phone_number&app_absent=0" class="btn">
                 <i class="fa-regular fa-comment-dots"></i>
-                להמלצה אישית על מוצר - כתבי לי
+                צריכים המלצה אישית? שלחו לי הודעה ואני אעזור
             </a>
         </div>
 
